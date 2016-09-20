@@ -1,0 +1,32 @@
+<div class = container>
+	<h3> Sales People </h3>
+	
+	<div ng-if = 'salespeople.length <= 4'>
+		there are {{salespeople.length}} salespeople in the company now!
+	</div>
+
+	<div class = 'mark' ng-if = 'salespeople.length > 4'>
+		there are {{salespeople.length}} salespeople in the company now!
+	</div>
+
+
+	<div>
+		<form name='newSalesperson'>
+			New Salesperson:
+			<input type='text' ng-model='name' ng-pattern='/^[a-zA-Z\s]*$/'></br>
+			<div ng-if = 'newSalesperson.$invalid'>Input is invalid! Space and letters ONLY! It cannot be empty!!</div>
+			<button class = 'btn btn-warning' ng-click='submit()' ng-disabled='newSalesperson.$invalid || !name.length'> Submit!</button>
+			{{name}}
+		</form>
+	</div>
+
+
+	<div class = 'row' ng-repeat = 'salesperson in salespeople'>
+		<div class = 'col-md-3 col-xs-3'>
+			<h4>{{salesperson.name}} </h4>
+		</div> 
+		<div class = 'col-md-9 col-xs-9'>
+			<button ng-click='delete(salesperson)' class = 'btn btn-success'> Delete this dude</button>
+		</div>
+	</div>
+</div>
