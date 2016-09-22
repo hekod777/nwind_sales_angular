@@ -16,9 +16,6 @@ router.get('/', function(req, res, next){
 });
 
 router.post('/', function(req, res, next){
-
-	//console.log(req.body.name);
-	//console.log (Object.keys(models.models));
 	console.log(req.body);
 	Salespeople.create({
 		name: req.body.theName
@@ -27,7 +24,6 @@ router.post('/', function(req, res, next){
 		res.send(salesperson);
 	})
 	.catch(next);
-
 })
 
 router.delete('/:id', function(req, res, next){

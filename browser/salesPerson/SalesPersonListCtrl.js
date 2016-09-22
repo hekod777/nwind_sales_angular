@@ -1,9 +1,17 @@
-nwindSalesApp.controller('SalesPersonListCtrl', function($scope, $log, SalesPersonFactory){
+nwindSalesApp.controller('SalesPersonListCtrl', function($rootScope, $scope, $log, SalesPersonFactory, RegionFactory){
 	
 	SalesPersonFactory.fetchAll()
 		.then (function(results){
 			console.log (results);
-			$scope.salespeople = results;
+			//$scope.salespeople = results;
+			$rootScope.salespeople = results;
+		});
+
+	RegionFactory.fetchAll()
+		.then (function(results){
+			console.log (results);
+			//$scope.regions = results;
+			$rootScope.regions = results;
 		});
 
 	$scope.submit = function(){
@@ -15,7 +23,6 @@ nwindSalesApp.controller('SalesPersonListCtrl', function($scope, $log, SalesPers
 	}
 
 	$scope.delete = function(salesperson){
-		//console.log(salesperson);
 		return SalesPersonFactory.delete(salesperson);
 	}
 

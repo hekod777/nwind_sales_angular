@@ -26,17 +26,5 @@ nwindSalesApp.factory('SalesPersonFactory', function($http, $state){
 			})
 	}
 
-	// SalesPersonFactory.submit = function(name){
-	// 	return $http({
-	// 		method:'POST',
-	// 		url: '/api/salesPeople',
-	// 		//contentType: 'application/json',
-	// 		data: {theName: name},
-	// 	})
-	// 		.then(function(result){
-	// 			salesPeople.push(result.data);
-	// 		})
-	// }
-
 	return SalesPersonFactory;
 })

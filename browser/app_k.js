@@ -14,7 +14,8 @@ nwindSalesApp
 			})
 			.state('regions',{
 				url:'/regions',
-				templateUrl:'/region/regions.html'
+				templateUrl:'/region/regions.html',
+				controller:'RegionListCtrl',
 			})
 
 

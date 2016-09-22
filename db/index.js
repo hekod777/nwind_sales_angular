@@ -22,7 +22,7 @@ module.exports = {
 		db: db,
 	},
 	sync: function(){
-		return db.sync({force:false});
+		return db.sync({force:true});
 	}
 
 };
