@@ -1,28 +1,15 @@
-const Sequelize = require('sequelize');
-const db = new Sequelize(process.env.DATABASE_URL);
+var db = require('./_db');
 
-var Salespeople = db.define('salesperson',{
-	name:{
-		type: Sequelize.STRING,
-		allowNull:false,
-	}
-})
+const SalesPerson = require('./salesPerson');
+const Region = require('./region');
 
-var Region = db.define('region',{
-	zipcode:{
-		type: Sequelize.STRING,
-		allowNull: false,
-	}
-})
 
 module.exports = {
 	models:{
-		Salespeople: Salespeople,
-		Region: Region,
-		db: db,
+		Salespeople: SalesPerson,
+		Region: Region
 	},
 	sync: function(){
 		return db.sync({force:true});
 	}
-
 };

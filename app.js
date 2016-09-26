@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const swig = require('swig');
-const bodyParser = require('body-parser');
 const path = require ('path');
 
 
@@ -16,6 +15,7 @@ app.engine('html', swig.renderFile);
 
 
 app.use(require('body-parser').json());
+
 app.use('/api/salesPeople', require('./routes/salesPeople.js'));
 app.use('/api/regions', require('./routes/regions.js'));
 

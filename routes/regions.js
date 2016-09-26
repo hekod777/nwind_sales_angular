@@ -5,18 +5,14 @@ var Region = models.models.Region;
 module.exports = router;
 
 router.get('/', function(req, res, next){
-	console.log ('aa');
-	console.log (Region);
 	Region.findAll()
-		.then(function(theRegions){
-			console.log (theRegions)
-			res.send(theRegions);
+		.then(function(regions){
+			res.send(regions);
 		})
 		.catch(next);
 });
 
 router.post('/', function(req, res, next){
-	console.log(req.body);
 	Region.create({
 		zipcode: req.body.theZipcode
 	})
@@ -27,7 +23,6 @@ router.post('/', function(req, res, next){
 })
 
 router.delete('/:id', function(req, res, next){
-	console.log (req.params.id);
 	Region.destroy({
 		where: {
 			id: req.params.id

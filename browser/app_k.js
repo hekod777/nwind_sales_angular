@@ -11,14 +11,20 @@ nwindSalesApp
 				url:'/salesPeople',
 				templateUrl:'/salesPerson/salesPeople.html',
 				controller:'SalesPersonListCtrl',
+        resolve: {
+          //how about resolving salesPeople?
+        }
 			})
 			.state('regions',{
 				url:'/regions',
 				templateUrl:'/region/regions.html',
 				controller:'RegionListCtrl',
-			})
+        resolve: {
+          //how about resolving regions?
+        }
+			});
 
 
 		$urlRouterProvider.otherwise('/');
 
-	})
+	});
